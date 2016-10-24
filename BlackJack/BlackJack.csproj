@@ -74,6 +74,8 @@
     <Compile Include="model\Game.cs" />
     <Compile Include="model\Player.cs" />
     <Compile Include="model\rules\AmericanNewGameStrategy.cs" />
+    <Compile Include="model\rules\DealerWinsOnEqualGameWinnerStrategy.cs" />
+    <Compile Include="model\rules\IGameWinnerStrategy.cs" />
     <Compile Include="model\rules\Soft17HitStrategy.cs" />
     <Compile Include="model\rules\BasicHitStrategy.cs" />
     <Compile Include="model\rules\IHitStrategy.cs" />
