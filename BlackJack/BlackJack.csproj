@@ -73,6 +73,7 @@
     <Compile Include="model\Deck.cs" />
     <Compile Include="model\Game.cs" />
     <Compile Include="model\Player.cs" />
+    <Compile Include="model\rules\NewGameStrategy.cs" />
     <Compile Include="model\rules\AmericanNewGameStrategy.cs" />
     <Compile Include="model\rules\PlayerWinsOnEqualGameWinnerStrategy.cs" />
     <Compile Include="model\rules\DealerWinsOnEqualGameWinnerStrategy.cs" />
