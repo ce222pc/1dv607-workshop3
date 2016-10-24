@@ -55,10 +55,8 @@ namespace BlackJack.model
                 {
                     Hit(this);
                 }
-
-                return true;
             }
-            return false;
+            return true;
         }
 
         public bool IsDealerWinner(Player a_player)
