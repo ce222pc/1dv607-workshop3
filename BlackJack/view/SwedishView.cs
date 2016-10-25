@@ -10,7 +10,7 @@ namespace BlackJack.view
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
-            System.Console.WriteLine("Hej Black Jack Världen");
+            System.Console.WriteLine("Hej Black Jack-världen");
             System.Console.WriteLine("----------------------");
             System.Console.WriteLine("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
         }
