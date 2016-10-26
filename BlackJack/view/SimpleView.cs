@@ -7,6 +7,14 @@ namespace BlackJack.view
 {
     class SimpleView : IView
     {
+        public enum MenuChoice
+        {
+            Play = 'p',
+            Hit = 'h',
+            Stand = 's',
+            Quit = 'q'
+        }
+
 
         public void DisplayWelcomeMessage()
         {
@@ -15,9 +23,10 @@ namespace BlackJack.view
             System.Console.WriteLine("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
         }
 
-        public int GetInput()
+        public Enum GetInput()
         {
-            return System.Console.In.Read();
+            string keyPressed = Convert.ToString(System.Console.In.Read());
+            return ((MenuChoice)Enum.Parse(typeof(MenuChoice), keyPressed));
         }
 
         public void DisplayCard(model.Card a_card)

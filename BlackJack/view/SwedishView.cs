@@ -7,6 +7,15 @@ namespace BlackJack.view
 {
     class SwedishView : IView 
     {
+
+        public enum MenuChoice
+        {
+            Play = 'p',
+            Hit = 'h',
+            Stand = 's',
+            Quit = 'q'
+        }
+
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
@@ -14,9 +23,10 @@ namespace BlackJack.view
             System.Console.WriteLine("----------------------");
             System.Console.WriteLine("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
         }
-        public int GetInput()
+        public Enum GetInput()
         {
-            return System.Console.In.Read();
+            string keyPressed = Convert.ToString(System.Console.In.Read());
+            return ((MenuChoice)Enum.Parse(typeof(MenuChoice), keyPressed));
         }
         public void DisplayCard(model.Card a_card)
         {
