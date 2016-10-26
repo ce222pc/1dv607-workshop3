@@ -7,14 +7,6 @@ namespace BlackJack.view
 {
     class SimpleView : IView
     {
-        public enum MenuChoice
-        {
-            Play = 'p',
-            Hit = 'h',
-            Stand = 's',
-            Quit = 'q'
-        }
-
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
@@ -22,12 +14,16 @@ namespace BlackJack.view
             System.Console.WriteLine("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
         }
 
-        public Enum GetInput()
+        public char GetInput()
         {
-            string keyPressed = Convert.ToString(System.Console.In.Read());
-            return ((MenuChoice)Enum.Parse(typeof(MenuChoice), keyPressed));
+            return Convert.ToChar(System.Console.In.Read());
         }
 
+        public void Pause()
+        {
+            Console.WriteLine("Dealing card...");
+            System.Threading.Thread.Sleep(500);
+        }
         public void DisplayCard(model.Card a_card)
         {
             System.Console.WriteLine("{0} of {1}", a_card.GetValue(), a_card.GetColor());
@@ -45,13 +41,16 @@ namespace BlackJack.view
 
         private void DisplayHand(String a_name, IEnumerable<model.Card> a_hand, int a_score)
         {
-            System.Console.WriteLine("{0} Has: ", a_name);
-            foreach (model.Card c in a_hand)
+            if (a_hand.Count() != 0)
             {
-                DisplayCard(c);
+                System.Console.WriteLine("{0} Has: ", a_name);
+                foreach (model.Card c in a_hand)
+                {
+                    DisplayCard(c);
+                }
+                System.Console.WriteLine("Score: {0}", a_score);
+                System.Console.WriteLine("");
             }
-            System.Console.WriteLine("Score: {0}", a_score);
-            System.Console.WriteLine("");
         }
 
         public void DisplayGameOver(bool a_dealerIsWinner)

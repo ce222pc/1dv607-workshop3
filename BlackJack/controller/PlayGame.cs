@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.controller
 {
-    class PlayGame : model.BlackJackObserver
+    class PlayGame : model.IBlackJackObserver
     {
         private view.IView m_view;
         private model.Game m_game;
@@ -16,7 +16,35 @@ namespace BlackJack.controller
             m_game.AddSubscriber(this);
         }
 
+        public void OnCardDealt(model.Card a_card)
+        {
+            // something something view
+            Console.WriteLine("Dealing card...");
+            RenderTable();
+            m_view.Pause();
+        }
+
         public bool Play()
+        {
+            RenderTable();
+
+            int input = m_view.GetInput();
+            if (input == view.MenuChoice.Play)
+            {
+                m_game.NewGame();
+            }
+            else if (input == view.MenuChoice.Hit)
+            {
+                m_game.Hit();
+            } else if (input == view.MenuChoice.Stand)
+            {
+                m_game.Stand();
+            }
+
+            return input != view.MenuChoice.Quit;
+        }
+
+        public void RenderTable()
         {
             m_view.DisplayWelcomeMessage();
 
@@ -27,22 +55,6 @@ namespace BlackJack.controller
             {
                 m_view.DisplayGameOver(m_game.IsDealerWinner());
             }
-
-            String input = m_view.GetInput().ToString();
-
-            if (input == "Play")
-            {
-                m_game.NewGame();
-            }
-            else if (input == "Hit")
-            {
-                m_game.Hit();
-            } else if (input == "Stand")
-            {
-                m_game.Stand();
-            }
-
-            return input != "Quit";
         }
     }
 }
