@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BlackJack.model;
 
 namespace BlackJack.controller
 {
-    class PlayGame
+    class PlayGame : IBlackJackObserver
     {
         public bool Play(model.Game a_game, view.IView a_view)
         {
+            a_game.m_player.AddSubscriber(this);
+
             a_view.DisplayWelcomeMessage();
             
             a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
@@ -35,6 +38,11 @@ namespace BlackJack.controller
             }
 
             return input != 'q';
+        }
+
+        public void CardReceived(Card a_card)
+        {
+            Console.WriteLine("Kortet!!!");
         }
     }
 }
