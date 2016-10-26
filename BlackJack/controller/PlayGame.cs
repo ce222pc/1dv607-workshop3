@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BlackJack.model;
 
 namespace BlackJack.controller
 {
-    class PlayGame : model.IBlackJackObserver
+
+
+    class PlayGame : IBlackJackObserver
+
     {
         private view.IView m_view;
         private model.Game m_game;
@@ -55,6 +59,11 @@ namespace BlackJack.controller
             {
                 m_view.DisplayGameOver(m_game.IsDealerWinner());
             }
+        }
+
+        public void CardReceived(Card a_card)
+        {
+            Console.WriteLine("Kortet!!!");
         }
     }
 }
