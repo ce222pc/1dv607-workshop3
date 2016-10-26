@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.controller
 {
-    class PlayGame
+    class PlayGame : model.BlackJackObserver
     {
         private view.IView m_view;
         private model.Game m_game;
@@ -13,6 +13,7 @@ namespace BlackJack.controller
         {
             m_view = a_view;
             m_game = a_game;
+            m_game.AddSubscriber(this);
         }
 
         public bool Play()

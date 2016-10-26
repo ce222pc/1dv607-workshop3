@@ -69,10 +69,10 @@
   <ItemGroup>
     <Compile Include="controller\PlayGame.cs" />
     <Compile Include="model\Card.cs" />
-    <Compile Include="model\MenuChoices.cs" />
     <Compile Include="model\Dealer.cs" />
     <Compile Include="model\Deck.cs" />
     <Compile Include="model\Game.cs" />
+    <Compile Include="model\BlackJackObserver.cs" />
     <Compile Include="model\Player.cs" />
     <Compile Include="model\rules\NewGameStrategy.cs" />
     <Compile Include="model\rules\AmericanNewGameStrategy.cs" />

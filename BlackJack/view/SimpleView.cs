@@ -15,7 +15,6 @@ namespace BlackJack.view
             Quit = 'q'
         }
 
-
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
