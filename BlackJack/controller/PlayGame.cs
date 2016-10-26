@@ -6,38 +6,45 @@ using BlackJack.model;
 
 namespace BlackJack.controller
 {
+
     class PlayGame : IBlackJackObserver
     {
-        public bool Play(model.Game a_game, view.IView a_view)
+        private view.IView m_view;
+        private model.Game m_game;
+        public PlayGame(model.Game a_game, view.IView a_view)
         {
-            a_game.m_player.AddSubscriber(this);
+            m_view = a_view;
+            m_game = a_game;
+            m_game.AddSubscriber(this);
+        }
 
-            a_view.DisplayWelcomeMessage();
-            
-            a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
-            a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
+        public bool Play()
+        {
+            m_view.DisplayWelcomeMessage();
 
-            if (a_game.IsGameOver())
+            m_view.DisplayDealerHand(m_game.GetDealerHand(), m_game.GetDealerScore());
+            m_view.DisplayPlayerHand(m_game.GetPlayerHand(), m_game.GetPlayerScore());
+
+            if (m_game.IsGameOver())
             {
-                a_view.DisplayGameOver(a_game.IsDealerWinner());
+                m_view.DisplayGameOver(m_game.IsDealerWinner());
             }
 
-            int input = a_view.GetInput();
+            String input = m_view.GetInput().ToString();
 
-            if (input == 'p')
+            if (input == "Play")
             {
-                a_game.NewGame();
+                m_game.NewGame();
             }
-            else if (input == 'h')
+            else if (input == "Hit")
             {
-                a_game.Hit();
-            }
-            else if (input == 's')
+                m_game.Hit();
+            } else if (input == "Stand")
             {
-                a_game.Stand();
+                m_game.Stand();
             }
 
-            return input != 'q';
+            return input != "Quit";
         }
 
         public void CardReceived(Card a_card)
