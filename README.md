@@ -1,5 +1,8 @@
-# blackjack_csharp
+# 1dv607 Workshop 3
 
-Fork this code to work with C# in workshop 3.
+#### Students
+* Daniel Sundberg ds222me
+* Christoffer Ekberg ce222pc
 
-Contains cs files and project files for Visual Studio 10. Also a modeling project is included, but this project will not load in certain versions of Visual Studio.
+### Documentation
+* [Full Class Diagram](/BlackJack/documentation/class-diagram-full.png) (sorry for the mess)
