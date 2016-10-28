@@ -5,6 +5,7 @@
 * Christoffer Ekberg ce222pc
 
 ### Documentation
-* [Full Class Diagram](/BlackJack/documentation/class-diagram-full.png) (sorry for the mess)
 * [Simplifed Class Diagram with changes](/BlackJack/documentation/class-diagram-simplified.png)
+* [Full Class Diagram](/BlackJack/documentation/class-diagram-full.png) (sorry for the mess)
+
 
