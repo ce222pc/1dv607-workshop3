@@ -6,6 +6,3 @@
 
 ### Documentation
 * [Simplifed Class Diagram with changes](/BlackJack/documentation/class-diagram-simplified.pdf)
-* [Full Class Diagram](/BlackJack/documentation/class-diagram-full.png) (sorry for the mess)
-
-
