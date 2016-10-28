@@ -60,10 +60,5 @@ namespace BlackJack.controller
                 m_view.DisplayGameOver(m_game.IsDealerWinner());
             }
         }
-
-        public void CardReceived(Card a_card)
-        {
-            Console.WriteLine("Kortet!!!");
-        }
     }
 }

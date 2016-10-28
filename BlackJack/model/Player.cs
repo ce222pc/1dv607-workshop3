@@ -7,25 +7,25 @@ namespace BlackJack.model
 {
     class Player
     {
-        private List<IBlackJackObserver> m_observers;
+        private List<IBlackJackObserver> m_subscribers;
         private List<Card> m_hand = new List<Card>();
         public Player()
         {
-            m_observers = new List<IBlackJackObserver>();
+            m_subscribers = new List<IBlackJackObserver>();
         }
 
 
 
         public void AddSubscriber(IBlackJackObserver a_sub)
         {
-            m_observers.Add(a_sub);
+            m_subscribers.Add(a_sub);
         }
 
         public void DealCard(Card a_card)
         {
-            foreach (IBlackJackObserver observer in m_observers)
+            foreach (IBlackJackObserver subscriber in m_subscribers)
             {
-                observer.OnCardDealt(a_card);
+                subscriber.OnCardDealt(a_card);
             }
             m_hand.Add(a_card);
 

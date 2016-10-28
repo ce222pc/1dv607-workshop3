@@ -8,10 +8,7 @@ namespace BlackJack.model
     class Game
     {
         private model.Dealer m_dealer;
-
         private model.Player m_player;
-
-
 
         public Game()
         {
