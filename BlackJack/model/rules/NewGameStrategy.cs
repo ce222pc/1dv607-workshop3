@@ -9,7 +9,7 @@ namespace BlackJack.model.rules
     {
         public abstract bool NewGame(Deck a_deck, Dealer a_dealer, Player a_player);
 
-        protected void getAndDeal(Deck a_deck, Player a_participant, bool show)
+        public void getAndDeal(Deck a_deck, Player a_participant, bool show)
         {
             Card c;
             c = a_deck.GetCard();

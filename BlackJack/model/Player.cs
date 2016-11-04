@@ -49,13 +49,14 @@ namespace BlackJack.model
             }
         }
 
-        public int CalcScore()
+        public int CalcScore(IEnumerable<Card> a_hand = null)
         {
+            a_hand = a_hand ?? GetHand();
             int[] cardScores = new int[(int)model.Card.Value.Count]
                 {2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ,10 ,10, 11};
             int score = 0;
 
-            foreach(Card c in GetHand()) {
+            foreach(Card c in a_hand) {
                 if (c.GetValue() != Card.Value.Hidden)
                 {
                     score += cardScores[(int)c.GetValue()];
