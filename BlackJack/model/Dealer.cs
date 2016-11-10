@@ -29,16 +29,24 @@ namespace BlackJack.model
                 m_deck = new Deck();
                 ClearHand();
                 a_player.ClearHand();
-                return m_newGameRule.NewGame(m_deck, this, a_player);   
+                return m_newGameRule.NewGame(m_deck, this, a_player);
             }
             return false;
+        }
+
+        public void getAndDeal(Deck a_deck, Player a_participant, bool show)
+        {
+            Card c;
+            c = a_deck.GetCard();
+            c.Show(show);
+            a_participant.DealCard(c);
         }
 
         public bool Hit(Player a_player)
         {
             if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver())
             {
-                m_newGameRule.getAndDeal(m_deck, a_player, true);
+                getAndDeal(m_deck, a_player, true);
                 return true;
             }
             return false;

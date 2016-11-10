@@ -10,9 +10,9 @@ namespace BlackJack.model.rules
 
         public override bool NewGame(Deck a_deck, Dealer a_dealer, Player a_player)
         {
-            getAndDeal(a_deck, a_player, true);
-            getAndDeal(a_deck, a_dealer, true);
-            getAndDeal(a_deck, a_player, true);
+            a_dealer.getAndDeal(a_deck, a_player, true);
+            a_dealer.getAndDeal(a_deck, a_dealer, true);
+            a_dealer.getAndDeal(a_deck, a_player, true);
 
             return true;
         }
